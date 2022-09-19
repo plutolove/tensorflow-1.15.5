@@ -1,0 +1,57 @@
+diff -ur tensorflow1.15_orig/tensorflow/python/eager/pywrap_tensor.cc tensorflow1.15/tensorflow/python/eager/pywrap_tensor.cc
+--- tensorflow1.15_orig/tensorflow/python/eager/pywrap_tensor.cc	2020-08-06 15:14:25.969521198 +0300
++++ tensorflow1.15/tensorflow/python/eager/pywrap_tensor.cc	2020-08-11 21:22:21.640482114 +0300
+@@ -839,7 +839,7 @@
+     sizeof(EagerTensor),                /* tp_basicsize */
+     0,                                  /* tp_itemsize */
+     (destructor)EagerTensor_dealloc,    /* tp_dealloc */
+-    nullptr,                            /* tp_print */
++    0,                                  /* tp_print */
+     nullptr,                            /* tp_getattr */
+     nullptr,                            /* tp_setattr */
+     nullptr,                            /* tp_compare */
+diff -ur tensorflow1.15_orig/tensorflow/python/eager/pywrap_tfe_src.cc tensorflow1.15/tensorflow/python/eager/pywrap_tfe_src.cc
+--- tensorflow1.15_orig/tensorflow/python/eager/pywrap_tfe_src.cc	2020-08-06 15:14:25.969521198 +0300
++++ tensorflow1.15/tensorflow/python/eager/pywrap_tfe_src.cc	2020-08-11 21:23:07.519485160 +0300
+@@ -1319,7 +1319,7 @@
+     sizeof(TFE_Py_Tape),                          /* tp_basicsize */
+     0,                                            /* tp_itemsize */
+     &TFE_Py_Tape_Delete,                          /* tp_dealloc */
+-    nullptr,                                      /* tp_print */
++    0,                                            /* tp_print */
+     nullptr,                                      /* tp_getattr */
+     nullptr,                                      /* tp_setattr */
+     nullptr,                                      /* tp_reserved */
+@@ -1353,7 +1353,7 @@
+     sizeof(TFE_Py_ForwardAccumulator),                      /* tp_basicsize */
+     0,                                                      /* tp_itemsize */
+     &TFE_Py_ForwardAccumulatorDelete,                       /* tp_dealloc */
+-    nullptr,                                                /* tp_print */
++    0,                                                      /* tp_print */
+     nullptr,                                                /* tp_getattr */
+     nullptr,                                                /* tp_setattr */
+     nullptr,                                                /* tp_reserved */
+diff -ur tensorflow1.15_orig/tensorflow/python/lib/core/bfloat16.cc tensorflow1.15/tensorflow/python/lib/core/bfloat16.cc
+--- tensorflow1.15_orig/tensorflow/python/lib/core/bfloat16.cc	2020-08-06 15:14:26.036521202 +0300
++++ tensorflow1.15/tensorflow/python/lib/core/bfloat16.cc	2020-08-11 21:24:30.702490685 +0300
+@@ -317,7 +317,7 @@
+     sizeof(PyBfloat16),                        // tp_basicsize
+     0,                                         // tp_itemsize
+     nullptr,                                   // tp_dealloc
+-    nullptr,                                   // tp_print
++    0,                                         // tp_print
+     nullptr,                                   // tp_getattr
+     nullptr,                                   // tp_setattr
+     nullptr,                                   // tp_compare / tp_reserved
+diff -ur tensorflow1.15_orig/tensorflow/python/lib/core/ndarray_tensor_bridge.cc tensorflow1.15/tensorflow/python/lib/core/ndarray_tensor_bridge.cc
+--- tensorflow1.15_orig/tensorflow/python/lib/core/ndarray_tensor_bridge.cc	2020-08-06 15:14:26.036521202 +0300
++++ tensorflow1.15/tensorflow/python/lib/core/ndarray_tensor_bridge.cc	2020-08-11 21:23:55.179488326 +0300
+@@ -86,7 +86,7 @@
+     0,                                /* tp_itemsize */
+     /* methods */
+     TensorReleaser_dealloc,      /* tp_dealloc */
+-    nullptr,                     /* tp_print */
++    0,                           /* tp_print */
+     nullptr,                     /* tp_getattr */
+     nullptr,                     /* tp_setattr */
+     nullptr,                     /* tp_compare */
